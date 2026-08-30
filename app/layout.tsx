@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import './sections.css';
+import './prime.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'FREDEMS Young Professionals & Projects Network',
-  description: 'A network connecting skilled young professionals, practical expertise and meaningful projects.',
+  title: 'FREDEMS PRIME LIMITED COMPANY',
+  description: 'A diversified Ghanaian business group creating trusted solutions and sustainable ventures.',
   metadataBase: new URL('https://fslcgroup.com'),
-  openGraph: { title: 'FREDEMS Young Professionals & Projects Network', description: 'Building Skills. Creating Opportunities. Delivering Projects.', type: 'website', images: [{ url: '/og.jpg', width: 1536, height: 864, alt: 'FREDEMS Young Professionals & Projects Network' }] },
-  twitter: { card: 'summary_large_image', title: 'FREDEMS Young Professionals & Projects Network', description: 'Building Skills. Creating Opportunities. Delivering Projects.', images: ['/og.jpg'] },
+  openGraph: { title: 'FREDEMS PRIME LIMITED COMPANY', description: 'Trusted services. Innovative solutions. Sustainable businesses.', type: 'website', images: [{ url: '/og-prime.png', width: 1536, height: 864, alt: 'FREDEMS PRIME LIMITED COMPANY' }] },
+  twitter: { card: 'summary_large_image', title: 'FREDEMS PRIME LIMITED COMPANY', description: 'Trusted services. Innovative solutions. Sustainable businesses.', images: ['/og-prime.png'] },
 };
 
 export default function RootLayout({
