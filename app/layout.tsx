@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { DM_Serif_Display, Inter } from 'next/font/google';
 import './globals.css';
 import './sections.css';
 import './prime.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const dmSerif = DM_Serif_Display({
+  variable: '--font-dm-serif',
   subsets: ['latin'],
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${dmSerif.variable} antialiased`}
       >
         {children}
       </body>
