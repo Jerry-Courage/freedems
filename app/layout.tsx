@@ -18,7 +18,7 @@ const dmSerif = DM_Serif_Display({
 export const metadata: Metadata = {
   title: 'FREDEMS PRIME LIMITED COMPANY',
   description: 'A diversified Ghanaian business group creating trusted solutions and sustainable ventures.',
-  metadataBase: new URL('https://fslcgroup.com'),
+  metadataBase: new URL('https://fplcgroup.com'),
   openGraph: { title: 'FREDEMS PRIME LIMITED COMPANY', description: 'Trusted services. Innovative solutions. Sustainable businesses.', type: 'website', images: [{ url: '/og-prime.png', width: 1536, height: 864, alt: 'FREDEMS PRIME LIMITED COMPANY' }] },
   twitter: { card: 'summary_large_image', title: 'FREDEMS PRIME LIMITED COMPANY', description: 'Trusted services. Innovative solutions. Sustainable businesses.', images: ['/og-prime.png'] },
 };
