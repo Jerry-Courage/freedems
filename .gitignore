@@ -36,3 +36,8 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# archives and temp
+*.tar.gz
+/package-site/
+/tmp/
