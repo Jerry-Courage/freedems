@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { env } from 'cloudflare:workers';
 
+const AUTH = 'Basic ZnJlZGVtczoyMDI0';
+
+function checkAuth(request: NextRequest) {
+  const auth = request.headers.get('authorization');
+  return auth === AUTH;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -11,19 +18,12 @@ export async function POST(request: NextRequest) {
     }
 
     const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-    const submission = {
-      id,
-      name,
-      email,
-      area,
-      message,
-      createdAt: new Date().toISOString(),
-    };
+    const submission = { id, name, email, area, message, createdAt: new Date().toISOString() };
 
     const kv = env.FREDEMS_KV as any;
     await kv.put(`submission:${id}`, JSON.stringify(submission));
 
-    const index = (await kv.get('submission:index', { type: 'json' })) || [];
+    const index: string[] = (await kv.get('submission:index', { type: 'json' })) || [];
     index.push(id);
     await kv.put('submission:index', JSON.stringify(index));
 
@@ -34,9 +34,8 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const auth = request.headers.get('authorization');
-  if (!auth || auth !== 'Basic ZnJlZGVtczoyMDI0') {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: { 'WWW-Authenticate': 'Basic realm="Admin"' } });
+  if (!checkAuth(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
